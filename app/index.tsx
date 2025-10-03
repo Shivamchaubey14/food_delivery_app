@@ -3,9 +3,10 @@ import './globals.css';
 export default function Index() {
   return (
      <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">
-        Welcome to Nativewind!
-      </Text>
+      <Text className="text-5xl text-center text-orange-400 font-quicksand-bold">
+        {/* Test Font */}
+</Text>
+
     </View>
   );
 }
