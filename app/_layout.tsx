@@ -1,7 +1,11 @@
 import { SplashScreen, Stack } from "expo-router";
-import {useFonts} from 'expo-font';
+import { useFonts } from 'expo-font';
 import { useEffect } from "react";
 import './globals.css';
+
+// Prevent the splash screen from auto-hiding before fonts are loaded
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
   const [fontsLoaded, error] = useFonts({
     "QuickSand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
@@ -11,9 +15,15 @@ export default function RootLayout() {
     "QuickSand-Light": require("../assets/fonts/Quicksand-Light.ttf"),
   });
 
-  useEffect(()=> {
-    if(error) throw error; 
-    if(fontsLoaded) SplashScreen.hideAsync();
+  useEffect(() => {
+    if (error) throw error;
+    if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded, error]);
-  return <Stack screenOptions={{headerShown: false}}/>;
+
+  // Don't render anything until fonts are loaded
+  if (!fontsLoaded && !error) {
+    return null;
+  }
+
+  return <Stack screenOptions={{ headerShown: false }} />;
 }
