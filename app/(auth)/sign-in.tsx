@@ -9,7 +9,6 @@ const SignIn = () => {
   const [form, setForm] = useState({ email: "", password: "" });
 
   const submit = async () => {
-    // Fix: should be "|| !form.password" instead of "|| form.password"
     if (!form.email || !form.password) {
       return Alert.alert("Error", "Please enter a valid email address & password.");
     }
@@ -17,7 +16,6 @@ const SignIn = () => {
     setIsSubmitting(true);
 
     try {
-      // Call Appwrite Sign-in function here
 
       Alert.alert("Success", "User signed in successfully");
       router.replace('/')
