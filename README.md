@@ -26,3 +26,7 @@ Here are some planned features that will be added soon:
 🧾 Order history and invoice generation
 
 🌙 Light/Dark mode toggle for better accessibility
+
+
+
+<!-- screenshots will be go there  -->
